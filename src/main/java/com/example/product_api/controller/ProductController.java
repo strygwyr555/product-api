@@ -1,9 +1,12 @@
 package com.example.product_api.controller;
 
+import com.example.product_api.entity.Product;
 import com.example.product_api.service.ProductService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/products")
@@ -16,7 +19,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public String getProducts() {
-        return "Products API is working";
+    public List<Product> getProducts() {
+        return productService.getAllProducts();
     }
 }
