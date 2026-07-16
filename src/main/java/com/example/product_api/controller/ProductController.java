@@ -2,9 +2,8 @@ package com.example.product_api.controller;
 
 import com.example.product_api.entity.Product;
 import com.example.product_api.service.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -22,4 +21,11 @@ public class ProductController {
     public List<Product> getProducts() {
         return productService.getAllProducts();
     }
+
+    @PostMapping
+    public Product createProduct(@RequestBody Product product) {
+        return productService.createProduct(product);
+    }
+
+
 }
